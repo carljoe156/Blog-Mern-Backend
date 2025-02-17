@@ -14,6 +14,18 @@ const commentRoutes = require("./routes/commentRoutes");
 
 // app.use("/");
 
+// app.use(cors());
+// Middleware to parse JSON bodies
+app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.get("/", (req, res) => {
   res.send("<h1>Blog-MERN API</h1><ol> </ol>");
 });
